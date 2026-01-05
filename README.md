@@ -20,3 +20,7 @@ The system models warehouse demand as a **co-occurrence graph**, applies **spect
 
 ##  System Architecture
 
+
+    <img width="5274" height="1190" alt="image" src="https://github.com/user-attachments/assets/491b89fc-cca8-4c2f-92a0-b093e35acad8" />
+<img width="5274" height="1190" alt="image" src="https://github.com/user-attachments/assets/491b89fc-cca8-4c2f-92a0-b093e35acad8" />
+
