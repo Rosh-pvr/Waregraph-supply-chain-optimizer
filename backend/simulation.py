@@ -1,7 +1,38 @@
 import random
 import numpy as np
 import networkx as nx
-from sklearn.cluster import SpectralClustering
+from sklearn.cluster import 
+
+
+
+# ---------- Product Master (Realistic SKU Catalog) ----------
+
+PRODUCT_CATALOG = {
+    "P001": {"name": "Milk", "category": "Dairy"},
+    "P002": {"name": "Bread", "category": "Bakery"},
+    "P003": {"name": "Butter", "category": "Dairy"},
+    "P004": {"name": "Cheese", "category": "Dairy"},
+    "P005": {"name": "Rice", "category": "Grains"},
+    "P006": {"name": "Lentils", "category": "Grains"},
+    "P007": {"name": "Oil", "category": "Grains"},
+    "P008": {"name": "Apple", "category": "Produce"},
+    "P009": {"name": "Banana", "category": "Produce"},
+    "P010": {"name": "Tomato", "category": "Produce"},
+    "P011": {"name": "Chips", "category": "Snacks"},
+    "P012": {"name": "Biscuits", "category": "Snacks"},
+    "P013": {"name": "Chocolate", "category": "Snacks"},
+    "P014": {"name": "Soda", "category": "Beverages"},
+    "P015": {"name": "Juice", "category": "Beverages"},
+}
+
+# pad to 50 products if needed
+while len(PRODUCT_CATALOG) < 50:
+    pid = f"P{len(PRODUCT_CATALOG)+1:03d}"
+    PRODUCT_CATALOG[pid] = {
+        "name": f"Item_{pid}",
+        "category": "Misc"
+    }
+
 
 CATEGORIES = {
     "Dairy": ["Milk", "Bread", "Butter", "Cheese", "Yogurt"],
@@ -15,10 +46,14 @@ NUM_ORDERS = 1200
 
 
 def generate_products():
-    products = []
-    for items in CATEGORIES.values():
-        products.extend(items)
-    return products
+    return list(PRODUCT_CATALOG.keys())
+
+def product_name(pid):
+    return PRODUCT_CATALOG[pid]["name"]
+
+def product_category(pid):
+    return PRODUCT_CATALOG[pid]["category"]
+
 
 
 def generate_orders(products):

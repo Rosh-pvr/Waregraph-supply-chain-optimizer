@@ -1,9 +1,15 @@
 from fastapi import FastAPI
 from simulation import run_simulation
+from simulation import PRODUCT_CATALOG
+
 
 app = FastAPI(title="WareGraph API")
 
 cached_data = run_simulation()
+
+@app.get("/catalog")
+def catalog():
+    return PRODUCT_CATALOG
 
 
 @app.get("/generate-data")
